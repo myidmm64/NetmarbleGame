@@ -755,6 +755,7 @@ MonoBehaviour:
   - {fileID: 1391339579}
   enemy:
   - {fileID: 4169488297534561823, guid: c544fa80167a7cd44a8d5ffe69aba039, type: 3}
+  - {fileID: 2977261638611788649, guid: 05c556b4b2f5183488240e485a74dca4, type: 3}
   time: 0.5
 --- !u!114 &519420035
 MonoBehaviour:
@@ -2221,7 +2222,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2051185655, guid: 4bcaefadef16b2d4a96a5eb89db1601f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}

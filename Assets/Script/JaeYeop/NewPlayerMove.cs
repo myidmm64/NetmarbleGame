@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class NewPlayerMove : MonoBehaviour
 {
@@ -43,15 +44,18 @@ public class NewPlayerMove : MonoBehaviour
         {
             target.GetComponent<SpriteRenderer>().color = Color.black;
             Vector3 targetPos = target.transform.position;
+
             if(targetPos.y < transform.position.y)
                 targetPos.y = transform.position.y;
-            transform.position = targetPos;
+            targetPos.x += flip ? 0.3f : -0.3f;
+
+            transform.DOMove(targetPos, 0.08f).SetEase(Ease.OutQuad);
             _targetList.Remove(target);
             Destroy(target);
         }
         else
         {
-            transform.Translate(dir * moveSpeed);
+            transform.DOMove(transform.position + (Vector3)dir * moveSpeed, 0.08f).SetEase(Ease.OutQuad);
             _delayCo = StartCoroutine(AttackCoroutine());
         }
     }
