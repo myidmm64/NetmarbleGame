@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
     //Animator animator;
     //public GameObject[] items;
@@ -49,11 +49,11 @@ public class Enemy : MonoBehaviour
         if (isMove)
         {
             //animator.SetBool("isRun", true);
-            distance.y = 0;
+            //distance.y = 0;
             transform.Translate(distance * speed * Time.deltaTime * -1);
         }
         else
-            //animator.SetBool("isRun", false);
+        //animator.SetBool("isRun", false);
 
         if (Hp <= 0 && gameObject.layer != 10) // dead
         {
@@ -113,7 +113,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
 
         Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, boxSize, whatIsLayer);
-        
+
         curTime = coolTime;
         //animator.SetBool("isAttack", false);
     }

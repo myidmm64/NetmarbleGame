@@ -6,6 +6,7 @@ public class MoveCamera : MonoBehaviour
 {
     public Transform target;
     public float speed;
+    public float distance;
     void Start()
     {
 
@@ -15,7 +16,7 @@ public class MoveCamera : MonoBehaviour
     void LateUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * speed);
-        transform.position = new Vector3(transform.position.x, target.position.y, -10f);
+        transform.position = new Vector3(transform.position.x, target.position.y * distance, -10f);
 
     }
 }
