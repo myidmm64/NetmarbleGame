@@ -21,14 +21,24 @@ public class NewPlayerMove : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
+            Vector3 mousePoint = Camera.main.ScreenToViewportPoint(mousePos);
+
+            //Debug.Log(mousePoint.ToString());
+
+            if (mousePoint.x < 0.5) { MoveAndAttack(Vector2.left); Debug.Log("Left"); }
+            else MoveAndAttack(Vector2.right);  Debug.Log("Right");
+        }
+        /*if (Input.GetMouseButtonDown(1))
         {
             MoveAndAttack(Vector2.left);
         }
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetMouseButtonDown(1))
         {
             MoveAndAttack(Vector2.right);
-        }
+        }*/
     }
 
     private void MoveAndAttack(Vector2 dir)
