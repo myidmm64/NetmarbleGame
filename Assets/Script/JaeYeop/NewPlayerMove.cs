@@ -160,11 +160,11 @@ public class NewPlayerMove : MonoBehaviour
         _isAttackable = true;
     }
 
-    public void Targetting()
+    /*public void Targetting()
     {
         foreach(var a in _targetList)
         {
             a.GetComponent<SpriteRenderer>().color = Color.black;
         }
-    }
+    }*/
 }
