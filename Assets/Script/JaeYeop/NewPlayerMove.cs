@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
+using TMPro;
 
 public class NewPlayerMove : MonoBehaviour
 {
@@ -22,6 +23,12 @@ public class NewPlayerMove : MonoBehaviour
     private Transform _visualTrm = null;
 
     private Animator _animator = null;
+
+    private int _combo = 0;
+    [field: SerializeField]
+    private UnityEvent<int> OnComboChange = null;
+    [SerializeField]
+    private TextMeshProUGUI _comboText = null;
 
     private void Awake()
     {
@@ -78,6 +85,10 @@ public class NewPlayerMove : MonoBehaviour
             });*/
             _visualTrm.position = targetPos;
             _animator.SetTrigger($"Attack{Random.Range(0, 3)}");
+            CameraManager.instance.CameraShake(4f, 20f, 0.2f);
+            _combo++;
+            ComboTextSet();
+            OnComboChange?.Invoke(_combo);
 
             _targetList.Remove(target);
             Destroy(target);
@@ -91,9 +102,21 @@ public class NewPlayerMove : MonoBehaviour
             });*/
             _visualTrm.position = transform.position + (Vector3)dir * moveSpeed;
             _animator.SetTrigger($"Attack{Random.Range(0, 3)}");
+            CameraManager.instance.CameraShake(4f, 20f, 0.2f);
+            _combo = 0;
+            ComboTextSet();
+            OnComboChange?.Invoke(_combo);
 
             _delayCo = StartCoroutine(AttackCoroutine());
         }
+    }
+
+    private void ComboTextSet()
+    {
+        _comboText.transform.DOKill();
+        _comboText.SetText($"{_combo} combo !");
+        _comboText.transform.localScale = Vector3.one * 1.5f;
+        _comboText.transform.DOScale(Vector3.one, 0.2f);
     }
 
     public void ReturnOrigin()
