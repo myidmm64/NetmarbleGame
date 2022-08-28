@@ -19,6 +19,16 @@ public class NewPlayerMove : MonoBehaviour
     private List<GameObject> _targetList = null;
     public List<GameObject> TargetList { get => _targetList; set => _targetList = value; }
 
+    private Transform _visualTrm = null;
+
+    private Animator _animator = null;
+
+    private void Awake()
+    {
+        _visualTrm = transform.Find("AgentVIsual");
+        _animator = _visualTrm.GetComponent<Animator>();
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -45,6 +55,8 @@ public class NewPlayerMove : MonoBehaviour
     {
         if (_isAttackable == false) return;
 
+        Sequence seq = DOTween.Sequence();
+
         flip = dir.x < 0 ? true : false;
         OnFliped?.Invoke(flip);
 
@@ -59,15 +71,34 @@ public class NewPlayerMove : MonoBehaviour
                 targetPos.y = transform.position.y;
             targetPos.x += flip ? 0.3f : -0.3f;
 
-            transform.DOMove(targetPos, 0.08f).SetEase(Ease.OutQuad);
+            /*seq.Append(_visualTrm.DOMove(targetPos, 0.08f).SetEase(Ease.OutQuad));
+            seq.AppendCallback(() =>
+            {
+                _visualTrm.position = transform.position;
+            });*/
+            _visualTrm.position = targetPos;
+            _animator.SetTrigger($"Attack{Random.Range(0, 3)}");
+
             _targetList.Remove(target);
             Destroy(target);
         }
         else
         {
-            transform.DOMove(transform.position + (Vector3)dir * moveSpeed, 0.08f).SetEase(Ease.OutQuad);
+            /*seq.Append(_visualTrm.DOMove(transform.position + (Vector3)dir * moveSpeed, 0.08f).SetEase(Ease.OutQuad));
+            seq.AppendCallback(() =>
+            {
+                _visualTrm.position = transform.position;
+            });*/
+            _visualTrm.position = transform.position + (Vector3)dir * moveSpeed;
+            _animator.SetTrigger($"Attack{Random.Range(0, 3)}");
+
             _delayCo = StartCoroutine(AttackCoroutine());
         }
+    }
+
+    public void ReturnOrigin()
+    {
+        _visualTrm.position = transform.position;
     }
 
     private GameObject ReturnTarget()

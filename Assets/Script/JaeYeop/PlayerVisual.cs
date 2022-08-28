@@ -8,14 +8,34 @@ public class PlayerVisual : MonoBehaviour
     [SerializeField]
     private LayerMask _layerMask = 0;
 
+    private Vector3 _originPos = Vector3.zero;
+    private GameObject _trail = null;
+
     private void Awake()
     {
         _spriteRederer = GetComponent<SpriteRenderer>();
+        _originPos = transform.parent.position;
+        _trail = transform.Find("Trail").gameObject;
+    }
+
+    public void ReturnOrigin()
+    {
+        transform.position = _originPos;
+    }
+
+    public void TrailOn()
+    {
+        //_trail.SetActive(true);
+    }
+
+    public void TrailOff()
+    {
+        //_trail.SetActive(false);
     }
 
     public void Flip(bool val)
     {
-        if (val)
+        if (val == false)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }

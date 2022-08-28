@@ -43,3 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Agent
+    uniqueID: 3813184103
+    locked: 0
