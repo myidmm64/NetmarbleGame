@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Hp : MonoBehaviour
 {
     [SerializeField]
+    private Image hpbar;
 
-    private float maxHp = 100;
-    public float curHp = 100;
-    float imsi = 0.00001f;
+    private float maxHp = 3;
+    public float curHp;
     private SpriteRenderer spriteRenderer;
     public float DamagedTime;
+    public GameObject RespawnPanel;
+    public GameObject PauseButton;
 
     void Start()
     {
+        
+        hpbar.fillAmount = curHp / maxHp;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -22,13 +27,15 @@ public class Hp : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            curHp -= 10;
+            curHp -= 1f;
         }
-        HandheHp();
-    }
-    private void HandheHp()
-    {
-        curHp -= imsi;
+        hpbar.fillAmount = curHp / maxHp;
+        if (curHp <= 0)
+        {
+            RespawnPanel.SetActive(true);
+            PauseButton.SetActive(false);
+            Time.timeScale = 0f;
+        }
     }
 
     public void TakeDamage(float damage)
@@ -47,6 +54,6 @@ public class Hp : MonoBehaviour
     void OffDamaged()
     {
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        gameObject.layer = 8;
+        gameObject.layer = 3;
     }
 }

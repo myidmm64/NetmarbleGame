@@ -9,7 +9,6 @@ public class NewPlayerMove : MonoBehaviour
 {
     public float moveSpeed = 3f;
     private bool _isAttackable = true;
-    private int Hp = 1;
 
     private Coroutine _delayCo = null;
     [SerializeField]
@@ -45,8 +44,8 @@ public class NewPlayerMove : MonoBehaviour
 
             //Debug.Log(mousePoint.ToString());
 
-            if (mousePoint.x < 0.5) { MoveAndAttack(Vector2.left); Debug.Log("Left"); }
-            else MoveAndAttack(Vector2.right);  Debug.Log("Right");
+            if (mousePoint.x < 0.5) { MoveAndAttack(Vector2.left); /*Debug.Log("Left"); */}
+            else MoveAndAttack(Vector2.right);  //Debug.Log("Right");
         }
         /*if (Input.GetMouseButtonDown(1))
         {
