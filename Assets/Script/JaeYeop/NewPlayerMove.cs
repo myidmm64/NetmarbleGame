@@ -24,6 +24,8 @@ public class NewPlayerMove : MonoBehaviour
     private Animator _animator = null;
 
     private int _combo = 0;
+    private int _monsterKillScore;
+
     [field: SerializeField]
     private UnityEvent<int> OnComboChange = null;
     [SerializeField]
@@ -47,6 +49,7 @@ public class NewPlayerMove : MonoBehaviour
             if (mousePoint.x < 0.5) { MoveAndAttack(Vector2.left); /*Debug.Log("Left"); */}
             else MoveAndAttack(Vector2.right);  //Debug.Log("Right");
         }
+        //_monsterKillScore += WaveSystemTable.currentMonsterScore;
         /*if (Input.GetMouseButtonDown(1))
         {
             MoveAndAttack(Vector2.left);

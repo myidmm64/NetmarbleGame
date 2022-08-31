@@ -2994,7 +2994,7 @@ GameObject:
   - component: {fileID: 1063443363}
   - component: {fileID: 1063443365}
   - component: {fileID: 1063443364}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Zone
   m_TagString: Zone
   m_Icon: {fileID: 0}
@@ -3109,6 +3109,7 @@ MonoBehaviour:
   PauseButton: {fileID: 284572895}
   Timer: {fileID: 1495418777}
   Hpbar: {fileID: 565201595}
+  Combo: {fileID: 507587701}
 --- !u!4 &1104231734
 Transform:
   m_ObjectHideFlags: 0
@@ -5070,6 +5071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpbar: {fileID: 937063983}
+  scoreText: {fileID: 0}
   curHp: 3
   DamagedTime: 1
   RespawnPanel: {fileID: 2114938426}
@@ -5348,7 +5350,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1420233, y: 1}
+    m_SensorSize: {x: 2.135659, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5909,7 +5911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1538491036170685858, guid: f626b9fcdfdb36e449e9b1310c5dcd6a, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1538491036466914753, guid: f626b9fcdfdb36e449e9b1310c5dcd6a, type: 3}
       propertyPath: m_RootOrder
