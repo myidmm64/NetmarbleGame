@@ -100,17 +100,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2209373d900db534caef80c147ecf635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 0, y: 0}
+  boxSize: {x: 5, y: 5}
   whatIsLayer:
     serializedVersion: 2
     m_Bits: 0
   target: {fileID: 0}
   percentage: 1
-  speed: 5
+  speed: 10
   damage: 1
   Hp: 3
   coolTime: 0.5
-  attack: 0
 --- !u!61 &2977261638611788648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.6}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &2977261638611788627
 Rigidbody2D:
@@ -173,4 +172,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.7
