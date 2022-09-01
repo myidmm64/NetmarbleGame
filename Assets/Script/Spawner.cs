@@ -8,13 +8,10 @@ public class Spawner : MonoBehaviour
     public GameObject[] enemy;
     public float time;
 
-    private void OnEnable()
+
+    void Start()
     {
         StartCoroutine("Spawn");
-    }
-    private void OnDisable()
-    {
-        StopAllCoroutines();
     }
 
     private IEnumerator Spawn()

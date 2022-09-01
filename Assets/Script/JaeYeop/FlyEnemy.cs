@@ -18,7 +18,6 @@ public class FlyEnemy : MonoBehaviour
     public int Hp = 3;
     private float curTime = 0;
     public float coolTime = 0.5f;
-    public bool attack = false;
 
     private void Start()
     {
@@ -56,35 +55,41 @@ public class FlyEnemy : MonoBehaviour
         else
         //animator.SetBool("isRun", false);
 
+        if (Hp <= 0 && gameObject.layer != 10) // dead
+        {
+            gameObject.layer = 10;
+            float rand = Random.Range(0, 1);
+            Debug.Log(rand);
+            if (rand <= percentage)
+            {
+                //int index = Random.Range(0, items.Length);
+                //Instantiate(items[index], transform.position, Quaternion.identity);
+            }
+            Destroy(this.gameObject);
+        }
+
         curTime -= Time.deltaTime;
         //rigid.velocity = new Vector2(-1, rigid.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Zone") && curTime <= 0)
-        {
+        if (collision.transform.CompareTag("Player") && curTime <= 0)
             isMove = false;
-        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Zone") && curTime <= 0)
-        {
+        if (collision.transform.CompareTag("Player") && curTime <= 0)
             isMove = true;
-        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Zone") && curTime <= 0)
+        if (collision.transform.CompareTag("Player") && curTime <= 0)
         {
             isMove = false;
+            Debug.Log("attack");
             StartCoroutine("Attack");
-            if (attack == true)
-            {
-                Debug.Log("attack");
-                Destroy(this.gameObject);
-            }
+            Destroy(this.gameObject);
         }
     }
 
@@ -94,6 +99,13 @@ public class FlyEnemy : MonoBehaviour
         StartCoroutine("colorChage");
     }
 
+    IEnumerator colorChage()
+    {
+        spriteRenderer.color = new Color32(0, 0, 0, 127);
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.color = new Color32(255, 255, 255, 255);
+    }
+
     IEnumerator Attack()
     {
         //animator.SetBool("isAttack", true);
@@ -101,16 +113,8 @@ public class FlyEnemy : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
 
         Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, boxSize, whatIsLayer);
-        for (int i = 0; i < collider2Ds.Length; i++)
-        {
-            if (collider2Ds[i].GetComponent<Hp>())
-            {
-                collider2Ds[i].GetComponent<Hp>().TakeDamage(damage);
-                //Debug.Log(collider2Ds[i].name + " On Damaged");
-            }
-        }
+
         curTime = coolTime;
-        attack = true;
         //animator.SetBool("isAttack", false);
     }
 }
