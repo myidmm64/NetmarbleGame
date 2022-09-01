@@ -89,7 +89,6 @@ public class Clock : MonoBehaviour
 
         }
 
-
         time += Time.deltaTime;
         _text.SetText(Time.time.ToString("N2"));
     }

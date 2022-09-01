@@ -14,6 +14,7 @@ public class NetworkManger : MonoBehaviour
     public GameObject PauseButton;
     public GameObject Timer;
     public GameObject Hpbar;
+<<<<<<< HEAD
     public GameObject Combo;
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -23,6 +24,8 @@ public class NetworkManger : MonoBehaviour
 >>>>>>> Stashed changes
 =======
 >>>>>>> Lch
+=======
+>>>>>>> parent of dce2832 (gk...)
 
 
 
@@ -34,6 +37,7 @@ public class NetworkManger : MonoBehaviour
         PauseButton.SetActive(true);
         PausePanel.SetActive(false);
         Hpbar.SetActive(true);
+<<<<<<< HEAD
         Combo.SetActive(true);
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -43,6 +47,9 @@ public class NetworkManger : MonoBehaviour
 >>>>>>> Stashed changes
 =======
 >>>>>>> Lch
+=======
+
+>>>>>>> parent of dce2832 (gk...)
     }
 
     public void OnClickStop()
@@ -67,7 +74,6 @@ public class NetworkManger : MonoBehaviour
         //GetActiveScene.name를 통해 현재 scene의 이름을 받아온다.
         //LoadScene을 통해 해당 scene을 실행한다.
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
     }
 
     private void Start()
@@ -82,7 +88,6 @@ public class NetworkManger : MonoBehaviour
             PausePanel.SetActive(true);
 
         }
-        
         /*if (RespawnPanel == true)
         {
             PauseButton.SetActive(false);
