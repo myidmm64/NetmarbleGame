@@ -100,11 +100,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2209373d900db534caef80c147ecf635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   boxSize: {x: 3, y: 3}
 =======
   boxSize: {x: 5, y: 5}
 >>>>>>> Stashed changes
+=======
+  boxSize: {x: 0, y: 0}
+>>>>>>> Lch
   whatIsLayer:
     serializedVersion: 2
     m_Bits: 8

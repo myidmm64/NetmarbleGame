@@ -1,30 +1,29 @@
-<<<<<<< Updated upstream
 using System.Collections;
 using System.Collections.Generic;
-=======
 using TMPro;
->>>>>>> Stashed changes
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Hp : MonoBehaviour
 {
     [SerializeField]
+    private Image hpbar;
 
-    private float maxHp = 100;
-    public float curHp = 100;
-    float imsi = 0.00001f;
+    public TextMeshProUGUI scoreText;
+    private int _monsterKillScore;
+
+    private float maxHp = 3;
+    public float curHp;
     private SpriteRenderer spriteRenderer;
     public float DamagedTime;
-<<<<<<< Updated upstream
-=======
     public GameObject RespawnPanel;
     public GameObject PauseButton;
-    public GameObject ScoreText;
->>>>>>> Stashed changes
 
     void Start()
     {
+        
+        hpbar.fillAmount = curHp / maxHp;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -32,9 +31,6 @@ public class Hp : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-<<<<<<< Updated upstream
-            curHp -= 10;
-=======
             curHp -= 1f;
         }
         hpbar.fillAmount = curHp / maxHp;
@@ -42,17 +38,10 @@ public class Hp : MonoBehaviour
         {
             RespawnPanel.SetActive(true);
             PauseButton.SetActive(false);
-            ScoreText.SetActive(false);
             //scoreText.gameObject.SetActive(true);
             //scoreText.text = "score : " + _monsterKillScore;
             Time.timeScale = 0f;
->>>>>>> Stashed changes
         }
-        HandheHp();
-    }
-    private void HandheHp()
-    {
-        curHp -= imsi;
     }
 
     public void TakeDamage(float damage)
@@ -71,6 +60,6 @@ public class Hp : MonoBehaviour
     void OffDamaged()
     {
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        gameObject.layer = 8;
+        gameObject.layer = 3;
     }
 }
