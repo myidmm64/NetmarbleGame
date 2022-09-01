@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -15,7 +16,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float damage;
     private bool isMove;
-    public int Hp = 3;
+    public int Hp = 1;
     private float curTime = 0;
     public float coolTime = 0.5f;
 
