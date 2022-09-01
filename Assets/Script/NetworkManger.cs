@@ -15,7 +15,11 @@ public class NetworkManger : MonoBehaviour
     public GameObject Timer;
     public GameObject Hpbar;
     public GameObject Combo;
+<<<<<<< Updated upstream
     public GameObject ScoreText;
+=======
+    public GameObject scoreText;
+>>>>>>> Stashed changes
 
 
 >>>>>>> Stashed changes
@@ -31,7 +35,11 @@ public class NetworkManger : MonoBehaviour
         PausePanel.SetActive(false);
         Hpbar.SetActive(true);
         Combo.SetActive(true);
+<<<<<<< Updated upstream
         ScoreText.SetActive(true);
+=======
+        scoreText.SetActive(true);
+>>>>>>> Stashed changes
     }
 
     public void OnClickStop()

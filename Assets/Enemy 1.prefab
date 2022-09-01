@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1602023ad689c40beea2d39f950930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 0, y: 0}
+  boxSize: {x: 5, y: 5}
   whatIsLayer:
     serializedVersion: 2
     m_Bits: 0

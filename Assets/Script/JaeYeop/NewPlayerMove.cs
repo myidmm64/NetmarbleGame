@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 using TMPro;
+using static UnityEngine.Rendering.DebugUI;
 
 public class NewPlayerMove : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class NewPlayerMove : MonoBehaviour
     private Transform _visualTrm = null;
 
     private Animator _animator = null;
+
+    public WaveSystemTable table;
+    public TextMeshProUGUI scoreText;
 
     private int _combo = 0;
 <<<<<<< Updated upstream
@@ -102,7 +106,10 @@ public class NewPlayerMove : MonoBehaviour
 
             _killCount++;
             Debug.Log("killcount : " + _killCount);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
             _currentWaveID = table.GetCurrentWave(_currentWaveID, ref _killCount);
             Debug.Log("current wave : " + _currentWaveID);
 
