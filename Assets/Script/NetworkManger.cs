@@ -7,12 +7,39 @@ public class NetworkManger : MonoBehaviour
 {
     public GameObject DisconnectPanel;
     public GameObject RespawnPanel;
+<<<<<<< Updated upstream
     
+=======
+    public GameObject PausePanel;
+    public GameObject PauseButton;
+    public GameObject Timer;
+    public GameObject Hpbar;
+    public GameObject Combo;
+    public GameObject ScoreText;
+
+
+>>>>>>> Stashed changes
 
     public void OnClickPlay()
     {
         Time.timeScale = 1f;
         DisconnectPanel.SetActive(false);
+<<<<<<< Updated upstream
+=======
+        Timer.SetActive(true);
+        PauseButton.SetActive(true);
+        PausePanel.SetActive(false);
+        Hpbar.SetActive(true);
+        Combo.SetActive(true);
+        ScoreText.SetActive(true);
+    }
+
+    public void OnClickStop()
+    {
+        Time.timeScale = 0f;
+        PausePanel.SetActive(true);
+
+>>>>>>> Stashed changes
     }
 
     public void OnClickQuit()

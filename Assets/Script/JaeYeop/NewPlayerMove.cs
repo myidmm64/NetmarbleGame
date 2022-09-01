@@ -25,6 +25,16 @@ public class NewPlayerMove : MonoBehaviour
     private Animator _animator = null;
 
     private int _combo = 0;
+<<<<<<< Updated upstream
+=======
+    private int _monsterKillScore;
+    private int _killCount;
+    private int _currentWaveID = 1;
+
+    public WaveSystemTable table;
+    public TextMeshProUGUI scoreText;
+
+>>>>>>> Stashed changes
     [field: SerializeField]
     private UnityEvent<int> OnComboChange = null;
     [SerializeField]
@@ -89,6 +99,17 @@ public class NewPlayerMove : MonoBehaviour
             _combo++;
             ComboTextSet();
             OnComboChange?.Invoke(_combo);
+
+            _killCount++;
+            Debug.Log("killcount : " + _killCount);
+
+            _currentWaveID = table.GetCurrentWave(_currentWaveID, ref _killCount);
+            Debug.Log("current wave : " + _currentWaveID);
+
+            _monsterKillScore += table.GetCurrentScore(_currentWaveID, _combo);
+            Debug.Log("score : " + _monsterKillScore);
+
+            scoreText.text = "score : " + _monsterKillScore;
 
             _targetList.Remove(target);
             Destroy(target);

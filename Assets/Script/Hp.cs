@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 using System.Collections;
 using System.Collections.Generic;
+=======
+using TMPro;
+>>>>>>> Stashed changes
 using UnityEngine;
 
 
@@ -12,6 +16,12 @@ public class Hp : MonoBehaviour
     float imsi = 0.00001f;
     private SpriteRenderer spriteRenderer;
     public float DamagedTime;
+<<<<<<< Updated upstream
+=======
+    public GameObject RespawnPanel;
+    public GameObject PauseButton;
+    public GameObject ScoreText;
+>>>>>>> Stashed changes
 
     void Start()
     {
@@ -22,7 +32,21 @@ public class Hp : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+<<<<<<< Updated upstream
             curHp -= 10;
+=======
+            curHp -= 1f;
+        }
+        hpbar.fillAmount = curHp / maxHp;
+        if (curHp <= 0)
+        {
+            RespawnPanel.SetActive(true);
+            PauseButton.SetActive(false);
+            ScoreText.SetActive(false);
+            //scoreText.gameObject.SetActive(true);
+            //scoreText.text = "score : " + _monsterKillScore;
+            Time.timeScale = 0f;
+>>>>>>> Stashed changes
         }
         HandheHp();
     }
