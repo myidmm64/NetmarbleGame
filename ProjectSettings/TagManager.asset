@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Detector
+  - Zone
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Enemy
   - Dead
   - Detector
-  - 
+  - PlayerDamaged
   - 
   - 
   - 
