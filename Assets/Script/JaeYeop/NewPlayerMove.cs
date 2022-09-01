@@ -29,16 +29,8 @@ public class NewPlayerMove : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     private int _combo = 0;
-<<<<<<< Updated upstream
-=======
     private int _monsterKillScore;
-    private int _killCount;
-    private int _currentWaveID = 1;
 
-    public WaveSystemTable table;
-    public TextMeshProUGUI scoreText;
-
->>>>>>> Stashed changes
     [field: SerializeField]
     private UnityEvent<int> OnComboChange = null;
     [SerializeField]
@@ -62,6 +54,7 @@ public class NewPlayerMove : MonoBehaviour
             if (mousePoint.x < 0.5) { MoveAndAttack(Vector2.left); Debug.Log("Left"); }
             else MoveAndAttack(Vector2.right);  Debug.Log("Right");
         }
+        //_monsterKillScore += WaveSystemTable.currentMonsterScore;
         /*if (Input.GetMouseButtonDown(1))
         {
             MoveAndAttack(Vector2.left);
@@ -104,6 +97,7 @@ public class NewPlayerMove : MonoBehaviour
             ComboTextSet();
             OnComboChange?.Invoke(_combo);
 
+<<<<<<< HEAD
             _killCount++;
             Debug.Log("killcount : " + _killCount);
 <<<<<<< Updated upstream
@@ -118,6 +112,8 @@ public class NewPlayerMove : MonoBehaviour
 
             scoreText.text = "score : " + _monsterKillScore;
 
+=======
+>>>>>>> Lch
             _targetList.Remove(target);
             Destroy(target);
         }
@@ -188,11 +184,11 @@ public class NewPlayerMove : MonoBehaviour
         _isAttackable = true;
     }
 
-    public void Targetting()
+    /*public void Targetting()
     {
         foreach(var a in _targetList)
         {
             a.GetComponent<SpriteRenderer>().color = Color.black;
         }
-    }
+    }*/
 }
