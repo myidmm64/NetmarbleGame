@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using TMPro;
+=======
+>>>>>>> parent of 75bd87e (lch)
 using UnityEngine;
 
 
@@ -32,6 +35,7 @@ public class Hp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             curHp -= 1f;
         }
         hpbar.fillAmount = curHp / maxHp;
@@ -45,6 +49,9 @@ public class Hp : MonoBehaviour
 =======
             curHp -= 10;
 >>>>>>> parent of 18e07ba (lch)
+=======
+            curHp -= 10;
+>>>>>>> parent of 75bd87e (lch)
         }
         HandheHp();
     }

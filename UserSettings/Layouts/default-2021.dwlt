@@ -19,7 +19,11 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
+<<<<<<< HEAD
   m_Title: Scene
+=======
+  m_Title: Hierarchy
+>>>>>>> parent of 75bd87e (lch)
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -403,6 +407,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     m_SelectedIDs: 92630000
@@ -428,6 +433,11 @@ MonoBehaviour:
     m_LastClickedID: 28776
     m_ExpandedIDs: 00000000687000006a7000002672000000ca9a3b
 >>>>>>> parent of 18e07ba (lch)
+=======
+    m_SelectedIDs: 92630000
+    m_LastClickedID: 25490
+    m_ExpandedIDs: 000000007e6300009063000000ca9a3b
+>>>>>>> parent of 75bd87e (lch)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -598,6 +608,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       m_SelectedIDs: 0a620000
       m_LastClickedID: 25098
@@ -623,6 +634,11 @@ MonoBehaviour:
       m_LastClickedID: 0
       m_ExpandedIDs: cab9ffff6cbaffff20bdffff6ccbffff12ccffffc6ceffff7ed9ffff24daffffd8dcffff0cfbffff4a6e0000666e00003aa60000d2ae000080af0000
 >>>>>>> parent of 18e07ba (lch)
+=======
+      m_SelectedIDs: 0a620000
+      m_LastClickedID: 25098
+      m_ExpandedIDs: 0cfbffff0a6200002062000032620000
+>>>>>>> parent of 75bd87e (lch)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -895,6 +911,7 @@ MonoBehaviour:
   m_Position:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     m_Target: {x: -2.70929, y: 9.026934, z: 868.22205}
@@ -920,6 +937,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 473.05762, y: 266.4014, z: 3.5346324}
 >>>>>>> parent of 18e07ba (lch)
+=======
+    m_Target: {x: -2.70929, y: 9.026934, z: 868.22205}
+    speed: 2
+    m_Value: {x: -2.70929, y: 9.026934, z: 868.22205}
+>>>>>>> parent of 75bd87e (lch)
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -972,6 +994,7 @@ MonoBehaviour:
   m_Size:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     m_Target: 8.681688
@@ -997,6 +1020,11 @@ MonoBehaviour:
     speed: 2
     m_Value: 340.533
 >>>>>>> parent of 18e07ba (lch)
+=======
+    m_Target: 8.681688
+    speed: 2
+    m_Value: 8.681688
+>>>>>>> parent of 75bd87e (lch)
   m_Ortho:
     m_Target: 1
     speed: 2
