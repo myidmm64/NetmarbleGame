@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     private float curTime = 0;
     public float coolTime = 0.5f;
     public bool attack = false;
+    public bool isDie = false;
 
     private void Start()
     {
@@ -28,26 +29,29 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector3 distance = transform.position - target.transform.position;
-        distance.x = distance.x > 0 ? 1 : -1;
-        distance.y = distance.y > 0 ? 1 : -1;
-        distance.z = 0;
-
-        if (distance.x > 0)
-            transform.localScale = new Vector3(1, 1, 1) * 1f;
-        else
-            transform.localScale = new Vector3(-1, 1, 1) * 1f;
-
-        if (isMove)
+        if (isDie == false)
         {
-            //animator.SetBool("isRun", true);
-            distance.y = 0;
-            transform.Translate(distance * speed * Time.deltaTime * -1);
-        }
-        else
-            //animator.SetBool("isRun", false);
+            Vector3 distance = transform.position - target.transform.position;
+            distance.x = distance.x > 0 ? 1 : -1;
+            distance.y = distance.y > 0 ? 1 : -1;
+            distance.z = 0;
 
-        curTime -= Time.deltaTime;
+            if (distance.x > 0)
+                transform.localScale = new Vector3(1, 1, 1) * 1f;
+            else
+                transform.localScale = new Vector3(-1, 1, 1) * 1f;
+
+            if (isMove)
+            {
+                //animator.SetBool("isRun", true);
+                distance.y = 0;
+                transform.Translate(distance * speed * Time.deltaTime * -1);
+            }
+            else
+                //animator.SetBool("isRun", false);
+
+                curTime -= Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -102,5 +106,11 @@ public class Enemy : MonoBehaviour
         curTime = coolTime;
         attack = true;
         //animator.SetBool("isAttack", false);
+    }
+
+    public void Die()
+    {
+        isDie = true;
+        Destroy(this.gameObject, 0.25f);
     }
 }

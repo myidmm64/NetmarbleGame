@@ -55,6 +55,7 @@ public class WaveSystemTable : MonoBehaviour
             StartCoroutine("Spawner", currentWaveIndex);
             waveImage[currentWaveIndex].SetActive(true);
             Invoke("WaveChage", 0.5f);
+            Invoke("WaveChangeEnd", 1.2f);
         }
     }
 
@@ -68,12 +69,16 @@ public class WaveSystemTable : MonoBehaviour
             StartCoroutine("Spawner", currentWaveIndex);
             waveImage[currentWaveIndex].SetActive(true);
             Invoke("WaveChage", 0.5f);
+            Invoke("WaveChangeEnd", 1.2f);
         }
     }
 
     public void WaveChage()
     {
         waveImage[currentWaveIndex].SetActive(false);
+    }
+    public void WaveChangeEnd()
+    {
         changeWave = false;
     }
 

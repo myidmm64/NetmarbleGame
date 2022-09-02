@@ -76,18 +76,18 @@ public class NetworkManger : MonoBehaviour
         if (timeText)
             timeText.text = curTime.ToString("F2");
 
-        switch (timeText.text)
+        switch ((int)curTime)
         {
-            case "1.00":
+            case 1:
                 wave.StartWave();
                 break;
-            case "30.00":
+            case 30:
                 wave.WaveUp();
                 break;
-            case "60.00":
+            case 60:
                 wave.WaveUp();
                 break;
-            case "90.00":
+            case 90:
                 wave.WaveUp();
                 break;
         }

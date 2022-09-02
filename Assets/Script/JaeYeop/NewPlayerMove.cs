@@ -7,6 +7,14 @@ using TMPro;
 
 public class NewPlayerMove : MonoBehaviour
 {
+    public WaveSystemTable table;
+    public TextMeshProUGUI scoreText;
+
+    private int _combo = 0;
+    private int _killCount;
+    private int _monsterKillScore;
+    private int _currentWaveID = 1;
+
     public float moveSpeed = 3f;
     private bool _isAttackable = true;
 
@@ -22,9 +30,6 @@ public class NewPlayerMove : MonoBehaviour
     private Transform _visualTrm = null;
 
     private Animator _animator = null;
-
-    private int _combo = 0;
-    private int _monsterKillScore;
 
     [field: SerializeField]
     private UnityEvent<int> OnComboChange = null;
@@ -58,6 +63,7 @@ public class NewPlayerMove : MonoBehaviour
         {
             MoveAndAttack(Vector2.right);
         }*/
+
     }
 
     private void MoveAndAttack(Vector2 dir)
@@ -94,8 +100,19 @@ public class NewPlayerMove : MonoBehaviour
             ComboTextSet();
             OnComboChange?.Invoke(_combo);
 
+            _killCount++;
+            Debug.Log("killcount : " + _killCount);
+            _currentWaveID = table.GetCurrentWave(_currentWaveID, ref _killCount);
+            Debug.Log("current wave : " + _currentWaveID);
+
+            _monsterKillScore += table.GetCurrentScore(_currentWaveID, _combo);
+            Debug.Log("score : " + _monsterKillScore);
+
+            //> 점수를화면에 출력하는 것.
+            scoreText.text = "score : " + _monsterKillScore;
+
+            target.GetComponent<Enemy>().Die();
             _targetList.Remove(target);
-            Destroy(target);
         }
         else
         {
