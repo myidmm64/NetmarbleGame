@@ -658,6 +658,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
@@ -1256,6 +1257,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 548023568}
+  Flyspawner1: {fileID: 0}
+  Flyspawner2: {fileID: 0}
+  Flyspawner3: {fileID: 0}
+  Flyspawner4: {fileID: 0}
+  spawner1: {fileID: 0}
+  spawner2: {fileID: 0}
+  spawner3: {fileID: 0}
+  spawner4: {fileID: 0}
+  Level1: {fileID: 0}
+  Level2: {fileID: 0}
+  Level3: {fileID: 0}
+  Level4: {fileID: 0}
+  Level5: {fileID: 0}
+  spawned: 0
 --- !u!1 &563097089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,6 +1910,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisconnectPanel: {fileID: 1622501149}
   RespawnPanel: {fileID: 2114938426}
+  PausePanel: {fileID: 0}
+  PauseButton: {fileID: 0}
+  Timer: {fileID: 0}
+  Hpbar: {fileID: 0}
+  Combo: {fileID: 0}
 --- !u!4 &1104231734
 Transform:
   m_ObjectHideFlags: 0
@@ -2085,6 +2105,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 2049780714}
+  Flyspawner1: {fileID: 0}
+  Flyspawner2: {fileID: 0}
+  Flyspawner3: {fileID: 0}
+  Flyspawner4: {fileID: 0}
+  spawner1: {fileID: 0}
+  spawner2: {fileID: 0}
+  spawner3: {fileID: 0}
+  spawner4: {fileID: 0}
+  Level1: {fileID: 0}
+  Level2: {fileID: 0}
+  Level3: {fileID: 0}
+  Level4: {fileID: 0}
+  Level5: {fileID: 0}
+  spawned: 0
 --- !u!1 &1205222577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,6 +2175,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
@@ -2309,6 +2344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -3159,7 +3195,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.273478, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

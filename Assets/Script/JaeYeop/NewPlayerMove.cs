@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 using TMPro;
-using static UnityEngine.Rendering.DebugUI;
 
 public class NewPlayerMove : MonoBehaviour
 {
@@ -24,10 +23,9 @@ public class NewPlayerMove : MonoBehaviour
 
     private Animator _animator = null;
 
-    public WaveSystemTable table;
-    public TextMeshProUGUI scoreText;
-
     private int _combo = 0;
+    private int _monsterKillScore;
+
     [field: SerializeField]
     private UnityEvent<int> OnComboChange = null;
     [SerializeField]
@@ -41,7 +39,7 @@ public class NewPlayerMove : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.timeScale > 0)
         {
             Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
             Vector3 mousePoint = Camera.main.ScreenToViewportPoint(mousePos);
@@ -51,6 +49,7 @@ public class NewPlayerMove : MonoBehaviour
             if (mousePoint.x < 0.5) { MoveAndAttack(Vector2.left); /*Debug.Log("Left"); */}
             else MoveAndAttack(Vector2.right);  //Debug.Log("Right");
         }
+        //_monsterKillScore += WaveSystemTable.currentMonsterScore;
         /*if (Input.GetMouseButtonDown(1))
         {
             MoveAndAttack(Vector2.left);
@@ -75,6 +74,7 @@ public class NewPlayerMove : MonoBehaviour
         if(target != null)
         {
             target.GetComponent<SpriteRenderer>().color = Color.black;
+            target.GetComponent<BoxCollider2D>().enabled = false;
             Vector3 targetPos = target.transform.position;
 
             if(targetPos.y < transform.position.y)
@@ -87,29 +87,13 @@ public class NewPlayerMove : MonoBehaviour
                 _visualTrm.position = transform.position;
             });*/
             _visualTrm.position = targetPos;
+            _visualTrm.position -= new Vector3(dir.x * 4, 0, 0);
             _animator.SetTrigger($"Attack{Random.Range(0, 3)}");
             CameraManager.instance.CameraShake(4f, 20f, 0.2f);
             _combo++;
             ComboTextSet();
             OnComboChange?.Invoke(_combo);
 
-<<<<<<< HEAD
-            _killCount++;
-            Debug.Log("killcount : " + _killCount);
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-            _currentWaveID = table.GetCurrentWave(_currentWaveID, ref _killCount);
-            Debug.Log("current wave : " + _currentWaveID);
-
-            _monsterKillScore += table.GetCurrentScore(_currentWaveID, _combo);
-            Debug.Log("score : " + _monsterKillScore);
-
-            scoreText.text = "score : " + _monsterKillScore;
-
-=======
->>>>>>> Lch
             _targetList.Remove(target);
             Destroy(target);
         }

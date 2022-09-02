@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ public class Hp : MonoBehaviour
 {
     [SerializeField]
     private Image hpbar;
+
+    public TextMeshProUGUI scoreText;
+    private int _monsterKillScore;
 
     private float maxHp = 3;
     public float curHp;
@@ -34,6 +38,8 @@ public class Hp : MonoBehaviour
         {
             RespawnPanel.SetActive(true);
             PauseButton.SetActive(false);
+            //scoreText.gameObject.SetActive(true);
+            //scoreText.text = "score : " + _monsterKillScore;
             Time.timeScale = 0f;
         }
     }

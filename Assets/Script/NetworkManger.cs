@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class NetworkManger : MonoBehaviour
 {
@@ -14,20 +15,10 @@ public class NetworkManger : MonoBehaviour
     public GameObject PauseButton;
     public GameObject Timer;
     public GameObject Hpbar;
-<<<<<<< HEAD
     public GameObject Combo;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    public GameObject ScoreText;
-=======
-    public GameObject scoreText;
->>>>>>> Stashed changes
-=======
->>>>>>> Lch
-=======
->>>>>>> parent of dce2832 (gk...)
-
-
+    public WaveSystemTable wave;
+    private float curTime;
+    private TextMeshProUGUI timeText;
 
     public void OnClickPlay()
     {
@@ -37,19 +28,7 @@ public class NetworkManger : MonoBehaviour
         PauseButton.SetActive(true);
         PausePanel.SetActive(false);
         Hpbar.SetActive(true);
-<<<<<<< HEAD
         Combo.SetActive(true);
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-        ScoreText.SetActive(true);
-=======
-        scoreText.SetActive(true);
->>>>>>> Stashed changes
-=======
->>>>>>> Lch
-=======
-
->>>>>>> parent of dce2832 (gk...)
     }
 
     public void OnClickStop()
@@ -74,11 +53,14 @@ public class NetworkManger : MonoBehaviour
         //GetActiveScene.name를 통해 현재 scene의 이름을 받아온다.
         //LoadScene을 통해 해당 scene을 실행한다.
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
     private void Start()
     {
         Time.timeScale = 0f;
+        curTime = 0f;
+        timeText = Timer.GetComponent<TextMeshProUGUI>();
     }
     private void Update()
     {
@@ -88,6 +70,28 @@ public class NetworkManger : MonoBehaviour
             PausePanel.SetActive(true);
 
         }
+
+        curTime += Time.deltaTime;
+
+        if (timeText)
+            timeText.text = curTime.ToString("F2");
+
+        switch (timeText.text)
+        {
+            case "1.00":
+                wave.StartWave();
+                break;
+            case "30.00":
+                wave.WaveUp();
+                break;
+            case "60.00":
+                wave.WaveUp();
+                break;
+            case "90.00":
+                wave.WaveUp();
+                break;
+        }
+
         /*if (RespawnPanel == true)
         {
             PauseButton.SetActive(false);
