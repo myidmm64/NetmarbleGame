@@ -16,6 +16,7 @@ public class NetworkManger : MonoBehaviour
     public GameObject Timer;
     public GameObject Hpbar;
     public GameObject Combo;
+    public GameObject Clock;
     public WaveSystemTable wave;
     private float curTime;
     private TextMeshProUGUI timeText;
@@ -29,6 +30,7 @@ public class NetworkManger : MonoBehaviour
         PausePanel.SetActive(false);
         Hpbar.SetActive(true);
         Combo.SetActive(true);
+        Clock.SetActive(true);
     }
 
     public void OnClickStop()
@@ -88,6 +90,9 @@ public class NetworkManger : MonoBehaviour
                 wave.WaveUp();
                 break;
             case 90:
+                wave.WaveUp();
+                break;
+            case 120:
                 wave.WaveUp();
                 break;
         }

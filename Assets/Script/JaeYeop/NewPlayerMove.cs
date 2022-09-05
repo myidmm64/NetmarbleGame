@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 using TMPro;
+//using System.Drawing;
 
 public class NewPlayerMove : MonoBehaviour
 {
@@ -51,19 +52,40 @@ public class NewPlayerMove : MonoBehaviour
 
             //Debug.Log(mousePoint.ToString());
 
-            if (mousePoint.x < 0.5) { MoveAndAttack(Vector2.left); /*Debug.Log("Left"); */}
-            else MoveAndAttack(Vector2.right);  //Debug.Log("Right");
+            if (mousePoint.x < 0.5) 
+            { 
+                MoveAndAttack(Vector2.left); 
+                /*Debug.Log("Left"); */
+            }
+            else 
+                MoveAndAttack(Vector2.right);  
+                //Debug.Log("Right");
         }
-        //_monsterKillScore += WaveSystemTable.currentMonsterScore;
-        /*if (Input.GetMouseButtonDown(1))
+        
+        if (_combo == 0)
         {
-            MoveAndAttack(Vector2.left);
+            _comboText.color = Color.white;
         }
-        if (Input.GetMouseButtonDown(1))
+        else if (_combo == 5)
         {
-            MoveAndAttack(Vector2.right);
-        }*/
-
+            _comboText.color = new Color(0.1568628f,0.6039216f,1,1);
+        }
+        else if (_combo == 30)
+        {
+            _comboText.color = new Color(0.5176471f, 0.9843137f, 0.5176471f,1);
+        }
+        else if (_combo == 60)
+        {
+            _comboText.color = new Color(0.3215686f, 0.8941177f, 0.8627451f,1);
+        }
+        else if (_combo == 100)
+        {
+            _comboText.color = new Color(1, 0.9607843f, 0.4313726f,1);
+        }
+        else if (_combo == 500)
+        {
+            _comboText.color = new Color(0.9215686f,0,0,1);
+        }
     }
 
     private void MoveAndAttack(Vector2 dir)

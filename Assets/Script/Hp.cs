@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class Hp : MonoBehaviour
     public float DamagedTime;
     public GameObject RespawnPanel;
     public GameObject PauseButton;
+    public GameObject _comboText;
+    public GameObject Timer;
 
     void Start()
     {
@@ -38,6 +41,8 @@ public class Hp : MonoBehaviour
         {
             RespawnPanel.SetActive(true);
             PauseButton.SetActive(false);
+            _comboText.SetActive(false);
+            Timer.SetActive(false);
             //scoreText.gameObject.SetActive(true);
             //scoreText.text = "score : " + _monsterKillScore;
             Time.timeScale = 0f;

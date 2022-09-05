@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2977261638611788629}
   - component: {fileID: 2977261638611788630}
-  - component: {fileID: 2977261638611788626}
+  - component: {fileID: 3271564416455224209}
   - component: {fileID: 2977261638611788648}
   m_Layer: 6
   m_Name: FlyEnemy
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2977261638611788626
+--- !u!114 &3271564416455224209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2977261638611788649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2209373d900db534caef80c147ecf635, type: 3}
+  m_Script: {fileID: 11500000, guid: a8285e6590d9da142bff06b6cf59e407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boxSize: {x: 5, y: 5}
@@ -109,6 +109,7 @@ MonoBehaviour:
   Hp: 3
   coolTime: 0.5
   attack: 0
+  isDie: 0
 --- !u!61 &2977261638611788648
 BoxCollider2D:
   m_ObjectHideFlags: 0
