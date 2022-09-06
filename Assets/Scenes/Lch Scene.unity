@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a26f74296c0fa941aca19ba4fd2428e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.05
+  _speed: 0.01
   _isFlowBackground: 1
 --- !u!1 &117280875
 GameObject:
@@ -2408,8 +2408,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 07b6a1493f7fdce48b33d0734e3359d8, type: 3}
   - {fileID: 21300000, guid: 519d48e3c19800f49a138108c6c48750, type: 3}
   - {fileID: 21300000, guid: 36dcd87309c481b499d0a5e8190b0e95, type: 3}
-  - {fileID: 21300000, guid: d7cba9ff27b00e44c9f8fe49a5edfca1, type: 3}
-  speed: 0.8
+  speed: 25
 --- !u!1 &889654953
 GameObject:
   m_ObjectHideFlags: 0
@@ -5274,7 +5273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913202957}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.09, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
