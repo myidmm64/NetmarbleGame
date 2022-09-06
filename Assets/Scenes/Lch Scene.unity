@@ -3210,7 +3210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e93a1f1e0d00044b996e9a8c4f21df7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7ee0d1112361d9498a0997f64229835, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5340,8 +5340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpbar: {fileID: 937063983}
-  scoreText: {fileID: 0}
-  curHp: 5
+  scoreText: {fileID: 1399748743}
+  curHp: 3
   DamagedTime: 1
   RespawnPanel: {fileID: 2114938426}
   PauseButton: {fileID: 284572895}
@@ -5710,7 +5710,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1420233, y: 1}
+    m_SensorSize: {x: 2.1439688, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
