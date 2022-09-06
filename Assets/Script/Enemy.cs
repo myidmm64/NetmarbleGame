@@ -115,6 +115,6 @@ public class Enemy : MonoBehaviour
     {
         isDie = true;
         animator.SetTrigger("IsDead");
-        Destroy(this.gameObject, 0.4f);
+        Destroy(this.gameObject, 0.35f);
     }
 }
