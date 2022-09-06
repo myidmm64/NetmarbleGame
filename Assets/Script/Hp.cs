@@ -22,10 +22,10 @@ public class Hp : MonoBehaviour
     public GameObject PauseButton;
     public GameObject _comboText;
     public GameObject Timer;
+    public Animator animator;
 
     void Start()
-    {
-        
+    { 
         hpbar.fillAmount = curHp / maxHp;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -37,34 +37,46 @@ public class Hp : MonoBehaviour
             curHp -= 1f;
         }
         hpbar.fillAmount = curHp / maxHp;
-        if (curHp <= 0)
-        {
-            RespawnPanel.SetActive(true);
-            PauseButton.SetActive(false);
-            _comboText.SetActive(false);
-            Timer.SetActive(false);
-            //scoreText.gameObject.SetActive(true);
-            //scoreText.text = "score : " + _monsterKillScore;
-            Time.timeScale = 0f;
-        }
+        
     }
 
     public void TakeDamage(float damage)
     {
         curHp -= damage;
-        OnDamaged();
+        
+        if (curHp <= 0)
+        {
+            animator.SetTrigger("IsDead");
+            Invoke("GameOver", 1f);
+        }
+        else
+        {
+            animator.SetTrigger("IsHit");
+            OnDamaged();
+        }
     }
     void OnDamaged()
     {
         gameObject.layer = 9;
-        spriteRenderer.color = new Color(1, 0, 0, 0.4f);
+        spriteRenderer.color = new Color32(255, 0, 0, 100);
 
         Invoke("OffDamaged", DamagedTime);
     }
 
     void OffDamaged()
     {
-        spriteRenderer.color = new Color(1, 1, 1, 1);
+        spriteRenderer.color = Color.white;
         gameObject.layer = 3;
+    }
+
+    void GameOver()
+    {
+        RespawnPanel.SetActive(true);
+        PauseButton.SetActive(false);
+        _comboText.SetActive(false);
+        Timer.SetActive(false);
+        //scoreText.gameObject.SetActive(true);
+        //scoreText.text = "score : " + _monsterKillScore;
+        Time.timeScale = 0f;
     }
 }

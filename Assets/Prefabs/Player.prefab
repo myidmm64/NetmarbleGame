@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1538491036058389404}
   - component: {fileID: 1538491036058389405}
   - component: {fileID: 1538491036058389406}
+  - component: {fileID: 1932047292191906575}
   m_Layer: 3
   m_Name: AgentVIsual
   m_TagString: Untagged
@@ -127,6 +128,26 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!95 &1932047292191906575
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538491036058389402}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b950666dca3b82845b725b5cf096d6b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1538491036170685858
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +240,7 @@ GameObject:
   - component: {fileID: 1538491036466914754}
   - component: {fileID: 1538491036466914756}
   - component: {fileID: 1538491036466914757}
+  - component: {fileID: 2986093963953319147}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -276,9 +298,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a820bb54c1cdef248bcaec7681270ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  hpbar: {fileID: 0}
+  scoreText: {fileID: 0}
   curHp: 100
   DamagedTime: 0
+  RespawnPanel: {fileID: 0}
+  PauseButton: {fileID: 0}
+  _comboText: {fileID: 0}
+  Timer: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &1538491036466914757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +319,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f5efca51813449a8a571088bc35ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  table: {fileID: 0}
+  scoreText: {fileID: 0}
   moveSpeed: 3
+  distance: 3
   OnFliped:
     m_PersistentCalls:
       m_Calls:
@@ -308,3 +339,27 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _targetList: []
+  OnComboChange:
+    m_PersistentCalls:
+      m_Calls: []
+  _comboText: {fileID: 0}
+--- !u!95 &2986093963953319147
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538491036466914814}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c6408a3ecd17c9649be9f102e72c4815, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

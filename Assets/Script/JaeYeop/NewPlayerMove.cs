@@ -17,6 +17,7 @@ public class NewPlayerMove : MonoBehaviour
     private int _currentWaveID = 1;
 
     public float moveSpeed = 3f;
+    public float distance = 3f;
     private bool _isAttackable = true;
 
     private Coroutine _delayCo = null;
@@ -101,7 +102,7 @@ public class NewPlayerMove : MonoBehaviour
 
         if(target != null)
         {
-            target.GetComponent<SpriteRenderer>().color = Color.black;
+            //target.GetComponent<SpriteRenderer>().color = Color.black;
             target.GetComponent<BoxCollider2D>().enabled = false;
             Vector3 targetPos = target.transform.position;
 
@@ -114,8 +115,11 @@ public class NewPlayerMove : MonoBehaviour
             {
                 _visualTrm.position = transform.position;
             });*/
-            _visualTrm.position = targetPos;
-            _visualTrm.position -= new Vector3(dir.x * 4, 0, 0);
+            if (Mathf.Abs(targetPos.x - transform.position.x) >= distance)
+            {
+                _visualTrm.position = targetPos;
+                _visualTrm.position -= new Vector3(dir.x * distance, 0, 0);
+            }
             _animator.SetTrigger($"Attack{Random.Range(0, 3)}");
             CameraManager.instance.CameraShake(4f, 20f, 0.2f);
             _combo++;

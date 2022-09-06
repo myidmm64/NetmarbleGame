@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //Animator animator;
+    Animator animator;
     public Vector2 boxSize;
     public LayerMask whatIsLayer;
     private SpriteRenderer spriteRenderer;
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     {
         target = GameObject.Find("Player");
         isMove = true;
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
@@ -48,9 +48,11 @@ public class Enemy : MonoBehaviour
                 transform.Translate(distance * speed * Time.deltaTime * -1);
             }
             else
+            {
                 //animator.SetBool("isRun", false);
+            }
 
-                curTime -= Time.deltaTime;
+            curTime -= Time.deltaTime;
         }
     }
 
@@ -93,16 +95,17 @@ public class Enemy : MonoBehaviour
         //animator.SetBool("isAttack", true);
         curTime = 9999;
         yield return new WaitForSeconds(0.25f);
+        target.GetComponent<Hp>().TakeDamage(damage);
 
-        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, boxSize, whatIsLayer);
-        for (int i = 0; i < collider2Ds.Length; i++)
-        {
-            if (collider2Ds[i].GetComponent<Hp>())
-            {
-                collider2Ds[i].GetComponent<Hp>().TakeDamage(damage);
-                //Debug.Log(collider2Ds[i].name + " On Damaged");
-            }
-        }
+        //Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, boxSize, whatIsLayer);
+        //for (int i = 0; i < collider2Ds.Length; i++)
+        //{
+        //    if (collider2Ds[i].GetComponent<Hp>())
+        //    {
+        //        collider2Ds[i].GetComponent<Hp>().TakeDamage(damage);
+        //        //Debug.Log(collider2Ds[i].name + " On Damaged");
+        //    }
+        //}
         curTime = coolTime;
         attack = true;
         //animator.SetBool("isAttack", false);
@@ -111,6 +114,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         isDie = true;
-        Destroy(this.gameObject, 0.25f);
+        animator.SetTrigger("IsDead");
+        Destroy(this.gameObject, 0.4f);
     }
 }

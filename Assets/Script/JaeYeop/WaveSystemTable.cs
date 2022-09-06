@@ -108,10 +108,10 @@ public class WaveSystemTable : MonoBehaviour
         //> 스코어 레벨은 콤보 숫자의 최소값이 적혀있기 때문에, combo와 매칭되는 것을 찾아줘야 한다.
         for (int i = 0; i < waves[id].scoreLevel.Length; i++)
         {
-            if (combo < waves[id].scoreLevel[i])
+            if (waves.Length > id && combo < waves[id].scoreLevel[i])
             {
                 //> 작은 범위를 체크하고 있기 때문에, 전단계의 score를 가져와야 하므로 (i - 1)을 사용한다.
-                return waves[id].scores[i - 1];
+                return waves[id].scores[i];
             }
         }
 
