@@ -85,7 +85,7 @@ public class WaveSystemTable : MonoBehaviour
     //> ref는 원본을 넘겨주는 것.
     public int GetCurrentWave(int waveID, ref int killCount)
     {
-        if (killCount == waves[waveID - 1].maxEnemyCount)
+        if (waveID < waves.Length && killCount == waves[waveID - 1].maxEnemyCount)
         {
             //> 다음 웨이브.
             killCount = 0;
