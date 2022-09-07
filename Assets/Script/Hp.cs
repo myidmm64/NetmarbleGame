@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,16 +11,19 @@ public class Hp : MonoBehaviour
     private Image hpbar;
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI OverScore;
     private int _monsterKillScore;
 
     private float maxHp = 3;
     public float curHp;
+    private float curTime;
     private SpriteRenderer spriteRenderer;
     public float DamagedTime;
     public GameObject RespawnPanel;
     public GameObject PauseButton;
     public GameObject _comboText;
     public GameObject Timer;
+    public GameObject Over;
     public Animator animator;
 
     void Start()
@@ -32,6 +34,7 @@ public class Hp : MonoBehaviour
 
     void Update()
     {
+        curTime += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.P))
         {
             curHp -= 1f;
@@ -75,6 +78,7 @@ public class Hp : MonoBehaviour
         PauseButton.SetActive(false);
         _comboText.SetActive(false);
         Timer.SetActive(false);
+        Over.SetActive(true);
         //scoreText.gameObject.SetActive(true);
         //scoreText.text = "score : " + _monsterKillScore;
         Time.timeScale = 0f;

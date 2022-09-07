@@ -10,6 +10,8 @@ public class NewPlayerMove : MonoBehaviour
 {
     public WaveSystemTable table;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText2;
+    public bool gameStart = false;
 
     private int _combo = 0;
     private int _killCount;
@@ -46,24 +48,22 @@ public class NewPlayerMove : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.timeScale > 0)
+        if (Input.GetMouseButtonDown(0) && gameStart && Time.timeScale > 0)
         {
-            AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.jump);
-            AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.Brandish);
-            //AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.None);
             Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
             Vector3 mousePoint = Camera.main.ScreenToViewportPoint(mousePos);
-
             //Debug.Log(mousePoint.ToString());
 
             if (mousePoint.x < 0.5) 
             { 
-                MoveAndAttack(Vector2.left); 
+                MoveAndAttack(Vector2.left);
                 /*Debug.Log("Left"); */
             }
-            else 
-                MoveAndAttack(Vector2.right);  
+            else
+            {
+                MoveAndAttack(Vector2.right);
                 //Debug.Log("Right");
+            }
         }
         
         if (_combo == 0)
@@ -97,6 +97,8 @@ public class NewPlayerMove : MonoBehaviour
         if (_isAttackable == false) return;
 
         Sequence seq = DOTween.Sequence();
+        AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.Brandish);
+        AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.jump);
 
         flip = dir.x < 0 ? true : false;
         OnFliped?.Invoke(flip);
@@ -139,6 +141,7 @@ public class NewPlayerMove : MonoBehaviour
 
             //> 점수를화면에 출력하는 것.
             scoreText.text = "score : " + _monsterKillScore;
+            scoreText2.text = "score : " + _monsterKillScore;
 
             target.GetComponent<Enemy>().Die();
             _targetList.Remove(target);

@@ -8,6 +8,8 @@ public class AudioSystem : MonoBehaviour
     {
         jump = 0,
         Brandish = 3,
+        UI = 5,
+        background = 9,
         None = 100
     }
 

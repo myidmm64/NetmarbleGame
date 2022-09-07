@@ -20,10 +20,12 @@ public class NetworkManger : MonoBehaviour
     public WaveSystemTable wave;
     private float curTime;
     private TextMeshProUGUI timeText;
+    public NewPlayerMove playerMove;
+    public Animator animator;
 
-    public void OnClickPlay()
+    public void Play()
     {
-        Time.timeScale = 1f;
+        playerMove.gameStart = true;
         DisconnectPanel.SetActive(false);
         Timer.SetActive(true);
         PauseButton.SetActive(true);
@@ -32,9 +34,18 @@ public class NetworkManger : MonoBehaviour
         Combo.SetActive(true);
         Clock.SetActive(true);
     }
+    public void OnClickPlay()
+    {
+        animator.SetTrigger("IsStart");
+        AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.UI);
+        AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.background);
+        Invoke("Play", 1f);
+    }
+
 
     public void OnClickStop()
     {
+        AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.UI);
         Time.timeScale = 0f;
         PausePanel.SetActive(true);
 
@@ -42,6 +53,7 @@ public class NetworkManger : MonoBehaviour
 
     public void OnClickQuit()
     {
+        AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.UI);
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -51,6 +63,7 @@ public class NetworkManger : MonoBehaviour
 
     public void OnClickRestart()
     {
+        AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.UI);
         //첫 장면을 가져오게 된다.
         //GetActiveScene.name를 통해 현재 scene의 이름을 받아온다.
         //LoadScene을 통해 해당 scene을 실행한다.
@@ -60,7 +73,7 @@ public class NetworkManger : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
         curTime = 0f;
         timeText = Timer.GetComponent<TextMeshProUGUI>();
     }
@@ -73,7 +86,8 @@ public class NetworkManger : MonoBehaviour
 
         }
 
-        curTime += Time.deltaTime;
+        if (DisconnectPanel.activeSelf == false)
+            curTime += Time.deltaTime;
 
         if (timeText)
             timeText.text = curTime.ToString("F2");
