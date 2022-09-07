@@ -33,6 +33,7 @@ public class NetworkManger : MonoBehaviour
         Hpbar.SetActive(true);
         Combo.SetActive(true);
         Clock.SetActive(true);
+        Time.timeScale = 1f;
     }
     public void OnClickPlay()
     {
