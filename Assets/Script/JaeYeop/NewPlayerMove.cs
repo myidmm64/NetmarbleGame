@@ -48,6 +48,9 @@ public class NewPlayerMove : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && Time.timeScale > 0)
         {
+            AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.jump);
+            AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.Brandish);
+            //AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.None);
             Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
             Vector3 mousePoint = Camera.main.ScreenToViewportPoint(mousePos);
 

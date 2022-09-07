@@ -76,6 +76,7 @@ public class Enemy : MonoBehaviour
         {
             isMove = false;
             StartCoroutine("Attack");
+            animator.SetTrigger("IsBoom");
             if (attack == true)
             {
                 Debug.Log("attack");
