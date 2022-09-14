@@ -40,6 +40,7 @@ public class NetworkManger : MonoBehaviour
         animator.SetTrigger("IsStart");
         AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.UI);
         AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.background);
+    
         Invoke("Play", 1f);
     }
 
@@ -47,6 +48,7 @@ public class NetworkManger : MonoBehaviour
     public void OnClickStop()
     {
         AudioSystem.auidoSystem.AudioClipPlayOneShot(AudioSystem.AudioName.UI);
+
         Time.timeScale = 0f;
         PausePanel.SetActive(true);
 

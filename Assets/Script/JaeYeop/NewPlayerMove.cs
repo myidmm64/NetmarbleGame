@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.EventSystems;
 //using System.Drawing;
 
 public class NewPlayerMove : MonoBehaviour
@@ -30,6 +31,7 @@ public class NewPlayerMove : MonoBehaviour
     [SerializeField]
     private List<GameObject> _targetList = null;
     public List<GameObject> TargetList { get => _targetList; set => _targetList = value; }
+    public bool isStoped {get;set;}
 
     private Transform _visualTrm = null;
 
@@ -44,6 +46,7 @@ public class NewPlayerMove : MonoBehaviour
     {
         _visualTrm = transform.Find("AgentVIsual");
         _animator = _visualTrm.GetComponent<Animator>();
+        isStoped = false;
     }
 
     private void Update()
@@ -54,16 +57,21 @@ public class NewPlayerMove : MonoBehaviour
             Vector3 mousePoint = Camera.main.ScreenToViewportPoint(mousePos);
             //Debug.Log(mousePoint.ToString());
 
-            if (mousePoint.x < 0.5) 
-            { 
-                MoveAndAttack(Vector2.left);
-                /*Debug.Log("Left"); */
-            }
-            else
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
-                MoveAndAttack(Vector2.right);
-                //Debug.Log("Right");
+                if (mousePoint.x < 0.5)
+                {
+                    //ÄÞº¸°¡ ¿©±â¼­ ½ÇÇàµÊ
+                    MoveAndAttack(Vector2.left);
+                    /*Debug.Log("Left"); */
+                }
+                else
+                {
+                    MoveAndAttack(Vector2.right);
+                    //Debug.Log("Right");
+                }
             }
+     
         }
         
         if (_combo == 0)
